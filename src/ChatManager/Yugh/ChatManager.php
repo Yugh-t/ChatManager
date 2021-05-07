@@ -9,7 +9,7 @@ use ChatManager\Yugh\listener\EventListener;
 
 class ChatManager extends PluginBase {
   
-  private const DISTANCE;
+  private const DISTANCE = 20;
   
   public $config;
   

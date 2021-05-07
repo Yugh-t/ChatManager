@@ -1,11 +1,11 @@
 <?php 
 
-namespace src\ChatManager\Yugh;
+namespace ChatManager\Yugh;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 
-use src\ChatManager\Yugh\listener\EventListener;
+use ChatManager\Yugh\listener\EventListener;
 
 class ChatManager extends PluginBase {
   

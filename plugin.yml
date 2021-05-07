@@ -1,0 +1,6 @@
+name: ChatManager
+main: ChatManager\Yugh\ChatManager
+
+api: 3.19.1
+version: 1
+author: Yugh

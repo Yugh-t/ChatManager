@@ -7,6 +7,8 @@ use pocketmine\utils\Config;
 
 use ChatManager\Yugh\listener\EventListener;
 
+use ChatManager\Yugh\commands\PrivateMessageCommand;
+
 class ChatManager extends PluginBase {
   
   private const DISTANCE = 20;
@@ -19,11 +21,26 @@ class ChatManager extends PluginBase {
 
     $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
   }
+
+  public function onLoad() :void {
+    $this->registerCommands();
+  }
   
   private function loadConfig() :void {
     if (!$this->config->exists("distance")) $this->config->set("distance", self::DISTANCE);
 
     $this->config->save();
+  }
+
+  private function registerCommands() :void {
+    $map = $this->getServer()->getCommandMap();
+    $commands = [
+      new PrivateMessageCommand($this, "pm", "личное сообщение")
+    ];
+
+    foreach ($commands as $command) {
+      $map->register("ChatManager", $command);
+    }
   }
   
 }

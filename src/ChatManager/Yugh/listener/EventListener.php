@@ -24,7 +24,7 @@ class EventListener implements Listener {
         $event->setCancelled(true);
 
         $message = $event->getMessage();
-        $ps->sendMessage("[".$player->getName()."] "$message);
+        $ps->sendMessage("[".$player->getName()."] ".$message);
       }
     }
   }

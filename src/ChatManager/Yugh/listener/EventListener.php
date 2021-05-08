@@ -9,8 +9,8 @@ class EventListener implements Listener {
   
   private $plugin;
   
-  public static function create($plugin) {
-    return new self($plugin);
+  public function __construct($plugin) {
+    $this->plugin = $plugin;
   }
   
   public function onChat(PlayerChatEvent $event) :void {

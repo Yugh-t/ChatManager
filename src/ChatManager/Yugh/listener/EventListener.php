@@ -21,8 +21,10 @@ class EventListener implements Listener {
     
     foreach ($players as $ps) {
       if ($ps->distance($player) <= $distance) {
+        $event->setCancelled(true);
+
         $message = $event->getMessage();
-        $ps->sendMessage($message);
+        $ps->sendMessage("[".$player->getName()."] "$message);
       }
     }
   }

@@ -17,7 +17,7 @@ class PrivateMessageCommand extends Command {
   }
 
   public function execute(CommandSender $sender, string $label, array $args) :bool {
-  	if (count($args) > 1) {
+    if (count($args) > 1) {
   	  $player = $this->plugin->getServer()->getPlayer($args[0]);
   	  $name = $args[0];
 

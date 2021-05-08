@@ -17,7 +17,7 @@ class ChatManager extends PluginBase {
     $this->config = new Config($this->getDataFolder(). "config.json", Config::JSON);
     $this->loadConfig();
 
-    $this->getServer()->getPluginManager()->registerEvents(EventListener::create($this), $this);
+    $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
   }
   
   private function loadConfig() :void {

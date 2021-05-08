@@ -24,10 +24,10 @@ class PrivateMessageCommand extends Command {
   	  array_shift($args);
 
   	  if (!is_null($player)) {
-  		if ($name != $sender->getName()) {
-  		  $message = implode(" ", $args);
-  		  $player->sendMessage("[".$sender->getName()." --> ".$name."] ".$message);
-  		} else $sender->sendMessage("Ты не можешь отправить сообщение себе!");
+  		  if ($name != $sender->getName()) {
+  		    $message = implode(" ", $args);
+  		    $player->sendMessage("[".$sender->getName()." --> ".$name."] ".$message);
+  		  } else $sender->sendMessage("Ты не можешь отправить сообщение себе!");
   	  } else $sender->sendMessage("Игрок не найден!");
   	} else $sender->sendMessage("/pm [Игрок] [сообщение]");
 

@@ -7,17 +7,17 @@ use pocketmine\event\player\PlayerChatEvent;
 
 class EventListener implements Listener {
   
-  private $plugin;
+  private $config;
   
-  public static function create($plugin) {
-    return new self($plugin);
+  public static function create($config) {
+    return new self($config);
   }
   
   public function onChat(PlayerChatEvent $event) :void {
     $player = $event->getPlayer();
     $players = $player->getLevel()->getPlayers();
     
-    $distance = $this->plugin->config->get("distance");
+    $distance = $this->config->get("distance");
     
     foreach ($players as $ps) {
       if ($ps->distance($player) <= $distance) {

@@ -17,21 +17,21 @@ class PrivateMessageCommand extends Command {
   }
 
   public function execute(CommandSender $sender, string $label, array $args) :bool {
-    if (count($args) > 1) {
-  	  $player = $this->plugin->getServer()->getPlayer($args[0]);
-  	  $name = $args[0];
+if (count($args) > 1) {
+$player = $this->plugin->getServer()->getPlayer($args[0]);
+$name = $args[0];
 
-  	  array_shift($args);
+array_shift($args);
 
-  	  if (!is_null($player)) {
-  		  if ($name != $sender->getName()) {
-  		    $message = implode(" ", $args);
-  		    $player->sendMessage("[".$sender->getName()." --> ".$name."] ".$message);
-  		  } else $sender->sendMessage("Ты не можешь отправить сообщение себе!");
-  	  } else $sender->sendMessage("Игрок не найден!");
-  	} else $sender->sendMessage("/pm [Игрок] [сообщение]");
+if (!is_null($player)) {
+if ($name != $sender->getName()) {
+$message = implode(" ", $args);
+$player->sendMessage("[".$sender->getName()." --> ".$name."] ".$message);
+} else $sender->sendMessage("Ты не можешь отправить сообщение себе!");
+} else $sender->sendMessage("Игрок не найден!");
+} else $sender->sendMessage("/pm [Игрок] [сообщение]");
 
-  	return true;
+return true;
   }
 
 }

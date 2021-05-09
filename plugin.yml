@@ -3,6 +3,7 @@ main: ChatManager\Yugh\ChatManager
 
 api: 3.19.1
 version: 1.6
+
 author: Yugh
 
 permissions:

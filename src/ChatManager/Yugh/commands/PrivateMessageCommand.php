@@ -17,6 +17,8 @@ class PrivateMessageCommand extends Command {
   }
 
   public function execute(CommandSender $sender, string $label, array $args) :bool {
+    $messages = $this->plugin->messages->getMessage("private-message-command");
+
   	if (count($args) > 1) {
   	  $player = $this->plugin->getServer()->getPlayer($args[0]);
   	  $name = $args[0];
@@ -24,12 +26,18 @@ class PrivateMessageCommand extends Command {
   	  array_shift($args);
 
   	  if (!is_null($player)) {
-  		if ($name != $sender->getName()) {
-  		  $message = implode(" ", $args);
-  		  $player->sendMessage("[".$sender->getName()." --> ".$name."] ".$message);
-  		} else $sender->sendMessage("Ты не можешь отправить сообщение себе!");
-  	  } else $sender->sendMessage("Игрок не найден!");
-  	} else $sender->sendMessage("/pm [Игрок] [сообщение]");
+  		  if ($name != strtolower($sender->getName())) {
+  		    $message = implode(" ", $args);
+          $format = $messages["send-format"];
+
+          $format = str_replace("{sender}", $sender->getName(), $format);
+          $format = str_replace("{player}", $name, $format);
+          $format = str_replace("{message}", $message, $format);
+
+  		    $player->sendMessage($format);
+  		  } else $sender->sendMessage($messages["message-not-to-me"]);
+  	  } else $sender->sendMessage($messages["player-not-found"]);
+  	} else $sender->sendMessage($messages["not-confirm"]);
 
   	return true;
   }

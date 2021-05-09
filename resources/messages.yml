@@ -3,3 +3,12 @@ private-message-command:
   player-not-found: "Игрок не найден!"
   message-not-to-me: "Ты не можешь отправить сообщение себе!"
   send-format: "[{sender} --> {player}] {message}"
+
+join-message-command:
+  not-confirm: "/join [сообщение]"
+  confirm: "Cообщение при входе установлено"
+  send-format: "{name}: {message}"
+
+ad-message-command:
+  not-confirm: "/ad [сообщение]"
+  send-format: "{ad}: {message}\n{name} - {sender}"

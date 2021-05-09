@@ -6,7 +6,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 
 use ChatManager\Yugh\listener\EventListener;
-
+use ChatManager\Yugh\utils\Messages;
 use ChatManager\Yugh\commands\PrivateMessageCommand;
 
 class ChatManager extends PluginBase {
@@ -14,12 +14,17 @@ class ChatManager extends PluginBase {
   private const DISTANCE = 20;
   
   public $config;
+
+  public $messages;
   
   public function onEnable() :void {
     $this->config = new Config($this->getDataFolder(). "config.json", Config::JSON);
     $this->loadConfig();
 
+    $this->messages = new Messages($this);
+
     $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
+
   }
 
   public function onLoad() :void {
@@ -41,6 +46,10 @@ class ChatManager extends PluginBase {
     foreach ($commands as $command) {
       $map->register("ChatManager", $command);
     }
+  }
+
+  public function getFolder() :string {
+    return $this->getFile();
   }
   
 }

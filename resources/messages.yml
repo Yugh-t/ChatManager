@@ -1,0 +1,5 @@
+private-message-command:
+  not-confirm: "/pm [игрок] [сообщение]"
+  player-not-found: "Игрок не найден!"
+  message-not-to-me: "Ты не можешь отправить сообщение себе!"
+  send-format: "[{sender} --> {player}] {message}"

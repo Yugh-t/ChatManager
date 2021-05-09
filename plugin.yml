@@ -2,9 +2,13 @@ name: ChatManager
 main: ChatManager\Yugh\ChatManager
 
 api: 3.19.1
-version: 1.4
+version: 1.6
 author: Yugh
 
 permissions:
   private.message.command:
+    default: true
+  join.message.command:
+    default: true
+  ad.message.command:
     default: true

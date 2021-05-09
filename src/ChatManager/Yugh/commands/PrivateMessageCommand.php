@@ -23,23 +23,23 @@ class PrivateMessageCommand extends Command {
   	  $player = $this->plugin->getServer()->getPlayer($args[0]);
   	  $name = $args[0];
 
-  	  array_shift($args);
+      array_shift($args);
 
   	  if (!is_null($player)) {
-  		  if ($name != strtolower($sender->getName())) {
-  		    $message = implode(" ", $args);
+  		if ($name != strtolower($sender->getName())) {
+  		  $message = implode(" ", $args);
           $format = $messages["send-format"];
 
           $format = str_replace("{sender}", $sender->getName(), $format);
           $format = str_replace("{player}", $name, $format);
           $format = str_replace("{message}", $message, $format);
 
-  		    $player->sendMessage($format);
-  		  } else $sender->sendMessage($messages["message-not-to-me"]);
+  		  $player->sendMessage($format);
+  		} else $sender->sendMessage($messages["message-not-to-me"]);
   	  } else $sender->sendMessage($messages["player-not-found"]);
   	} else $sender->sendMessage($messages["not-confirm"]);
 
-  	return true;
+    return true;
   }
 
 }

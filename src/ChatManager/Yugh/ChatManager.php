@@ -42,6 +42,7 @@ class ChatManager extends PluginBase {
 
     private function registerCommands() :void {
         $map = $this->getServer()->getCommandMap();
+
         $commands = [
             new PrivateMessageCommand($this, "pm", "личное сообщение"),
             new JoinMessageCommand($this, "join", "сообщение при входе"),
